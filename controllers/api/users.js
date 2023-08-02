@@ -47,3 +47,7 @@ function createJWT(user) {
     { expiresIn: '24h' }
   );
 }
+function checkToken(req, res) {
+  console.log("req.user", req.user);
+  res.json(req.exp);
+}
