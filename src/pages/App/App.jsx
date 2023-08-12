@@ -42,7 +42,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
-import VehiclesPage from '../VehiclesPage/VehiclesPage';
+import VehiclesPage from '../VehiclesPage/VehiclesPage'
 import { Link } from 'react-router-dom';
 
 export default function App() {
