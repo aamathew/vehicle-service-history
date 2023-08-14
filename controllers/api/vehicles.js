@@ -25,12 +25,12 @@ async function getVehicle(req, res) {
 
 //create vehicle
 const createVehicle = async (req, res) => {
-  console.log('hi');
+  console.log('hi', req.body);
 
-  const {text} = req.body
+  const vehicleFromRequest = req.body
   // add doc to db
   try {
-    const bug = await Vehicle.create(text)
+    const vehicle = await Vehicle.create(vehicleFromRequest)
     res.status(200).json(vehicle)  
   } catch (error) {
     res.status(400).json({error: error.message})

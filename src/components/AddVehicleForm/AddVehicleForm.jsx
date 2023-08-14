@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function AddVehicleForm() {
-  const [text, setText] = useState({
-    vehicle:'',
+  const [vehicleDetails, setVehicleDetails] = useState({
+    name: '',
+    text: '',
   });
   const [error, setError] = useState(null)
   const navigate = useNavigate();
@@ -12,11 +13,11 @@ export default function AddVehicleForm() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const vehicle = {text}
+    console.log(vehicleDetails);
 
     const response = await fetch('/api/vehicles', {
       method: 'POST',
-      body: JSON.stringify(vehicle),
+      body: JSON.stringify(vehicleDetails),
       headers: {
         'Content-Type' : 'application/json'
       },
@@ -26,17 +27,19 @@ export default function AddVehicleForm() {
     if (!response.ok) {
       setError(json.error)
     } else {
-      setText('')
+      setVehicleDetails('')
       setError(null)
       console.log('new vehicle added', json)
       navigate('/allVehicles'); // Navigate to "/allVehicles" after successful form submission
     }
   }
     function handleChange(evt) {
-    setText({
-      ...text,
+      console.log(evt.target.name, evt.target.value);
+      setVehicleDetails({
+      ...vehicleDetails,
       [evt.target.name]:evt.target.value
     });
+    console.log(vehicleDetails);
   }
 
   return (
@@ -45,14 +48,14 @@ export default function AddVehicleForm() {
         <input 
           type="text" 
           name='name' 
-          value={text.name}
+          value={vehicleDetails.name}
           placeholder='Name of Vehicle'
           onChange={handleChange}
         />
         <textarea
           type="text"
           name="text"
-          value={text.text}
+          value={vehicleDetails.text}
           onChange={handleChange}
           placeholder='Add Description'
           required
@@ -62,4 +65,4 @@ export default function AddVehicleForm() {
       </form>
     </div>
   );
-}
+  }
