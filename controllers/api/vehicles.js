@@ -26,7 +26,6 @@ async function getVehicle(req, res) {
 //create vehicle
 const createVehicle = async (req, res) => {
   console.log('hi');
-  console.log(req, res)
 
   const {text} = req.body
   // add doc to db
