@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const SALT_ROUNDS = 6;
 
 const vehicleSchema = new Schema({
-  text: {type: String, required: true}
+  text: {type: String, required: true},
+  name: {type: String, required: true}
 },{
   timestamps: true
 });
