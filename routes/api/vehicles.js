@@ -21,7 +21,7 @@ router.post('/', createVehicle);
 router.delete('/:id', deleteVehicle);
 
 // update vehicle
-router.patch('/:id', updateVehicle);
+router.put('/:id', updateVehicle);
 
 
 module.exports = router

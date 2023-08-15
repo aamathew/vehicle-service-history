@@ -30,7 +30,7 @@ export default function AddVehicleForm() {
       setVehicleDetails('')
       setError(null)
       console.log('new vehicle added', json)
-      navigate('/allVehicles'); // Navigate to "/allVehicles" after successful form submission
+      navigate('/vehicles'); // Navigate to "/allVehicles" after successful form submission
     }
   }
     function handleChange(evt) {
