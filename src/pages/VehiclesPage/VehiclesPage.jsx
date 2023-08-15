@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
-import AddVehicleForm from "../../components/AddVehicleForm/AddVehicleForm";
+// import EditVehicleForm from "../../components/EditVehicleForm/EditVehicleForm";
 
-export default function VehiclesPage() {
+export default function AllVehiclePage() {
   const [vehicles, setVehicles] = useState('')
+ 
+
+
   useEffect(() => {
     const fetchVehicles = async () => {
       const response = await fetch('/api/vehicles')
@@ -16,13 +19,15 @@ export default function VehiclesPage() {
     fetchVehicles()
   }, [])
 
+
+
   return (
     <>
-    <h1>VehiclesPage</h1>
-    <AddVehicleForm />
+    <h1>Vehicle History</h1>
     { vehicles ?
       vehicles.map((vehicle) => (
-        <li key={vehicle._id}>{vehicle.text}
+        
+      <li key={vehicle._id}>{vehicle.name} | {vehicle.text} | {vehicle.createdAt}
         </li>
       ))
       :
@@ -31,3 +36,14 @@ export default function VehiclesPage() {
     </>
   );
 }
+// export default function EditVehiclesPage() {
+
+
+//   return (
+//     <>
+//     <h1>Edit Vehicle</h1>
+//     <EditVehicleForm />
+
+//     </>
+//   );
+// }

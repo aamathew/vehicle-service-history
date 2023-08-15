@@ -5,7 +5,8 @@ const SALT_ROUNDS = 6;
 
 const vehicleSchema = new Schema({
   text: {type: String, required: true},
-  name: {type: String, required: true}
+  name: {type: String, required: true},
+  createdAt: {type: Date}
 },{
   timestamps: true
 });
