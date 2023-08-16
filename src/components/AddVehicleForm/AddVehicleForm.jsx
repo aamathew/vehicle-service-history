@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
+
 export default function AddVehicleForm() {
   const [vehicleDetails, setVehicleDetails] = useState({
     name: '',
@@ -60,9 +62,10 @@ export default function AddVehicleForm() {
           placeholder='Add Description'
           required
         />
-        <button type="submit">Add Vehicle</button>
+        <button className="btn-primary btn" type="submit">Add Vehicle</button>
         {error && <div>{error}</div>}
       </form>
     </div>
   );
   }
+  
